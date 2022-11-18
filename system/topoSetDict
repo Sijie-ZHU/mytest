@@ -1,0 +1,121 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2012                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      topoSetDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+actions
+(
+    {
+        name    soil1;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        box     (-1 -1 -3)(91 81 -2);
+    }
+	{
+        name    soil2;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        box     (-1 -1 -2)(91 81 -1);
+    }
+	{
+        name    soil3;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        box     (-1 -1 -1)(91 81 0);
+    }
+	{
+        name    air;
+        type    cellSet;
+        action  new;
+        source  cellToCell;
+        set     soil1;
+    }
+	{
+        name    air;
+        type    cellSet;
+        action  add;
+        source  cellToCell;
+        set     soil2;
+    }
+	{
+        name    air;
+        type    cellSet;
+        action  add;
+        source  cellToCell;
+        set     soil3;
+    }
+	{
+        name    air;
+        type    cellSet;
+        action  add;
+        source  boxToCell;
+        box     (36 36 0)(44 44 6);
+    }
+	
+	{
+        name    air;
+        type    cellSet;
+        action  invert;
+    }
+	
+	{
+        name    soil1;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        set     soil1;           // cellSet
+    }
+	{
+        name    soil2;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        set     soil2;           // cellSet
+    }
+	{
+        name    soil3;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        set     soil3;           // cellSet
+    }
+	{
+        name    air;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        set     air;           // cellSet
+    }
+	{
+        name    buildings;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+		box    (36 36 0)(44 44 6);
+        
+    }
+	{
+        name    buildings;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        set     buildings;           // cellSet
+    }
+);
+ 
+// ************************************************************************* //

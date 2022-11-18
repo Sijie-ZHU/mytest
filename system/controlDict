@@ -1,0 +1,80 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2012                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     chtMultiRegionSimpleFoam;
+
+startFrom       latestTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         2000;
+
+deltaT          1;
+
+writeControl    timeStep;
+
+writeInterval   100;
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  6;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable true;
+libs            
+(
+    thermalBaffleModels
+	"USource.so"
+	"kSource.so"
+	"epsilonSource.so"
+	"ESource.so"
+	"specHumSource.so"
+	
+);
+
+functions
+{
+GLeaf
+    {
+        type GLeaf;
+        libs ("GLeaf.so");
+		executeControl      timeStep;
+        executeInterval     1;
+        writeControl        writeTime;
+    }
+
+TLeaf
+    {
+        type TLeaf;
+        libs ("TLeaf.so");
+		executeControl      timeStep;
+        executeInterval     1;
+        writeControl        writeTime;
+    }
+}
+
+
+// ************************************************************************* //

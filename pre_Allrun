@@ -1,0 +1,16 @@
+#!/bin/sh
+cd "${0%/*}" || exit                                # Run from this directory
+. ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions        # Tutorial run functions
+#------------------------------------------------------------------------------
+
+runApplication blockMesh
+runApplication topoSet
+subsetMesh -overwrite air -patch buildings
+runApplication changeDictionary
+restore0Dir
+\cp 0/specHum.orig 0/specHum
+\cp 0/LAD.orig 0/LAD
+runApplication setFields
+\cp 0/LAD constant/LAD
+\foamToVTK -cellZone tree_cube_1
+#------------------------------------------------------------------------------
