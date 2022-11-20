@@ -15,7 +15,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application     chtMultiRegionSimpleFoam;
+application     mychtMultiRegionSimpleFoam;
 
 startFrom       latestTime;
 
@@ -64,6 +64,7 @@ GLeaf
 		executeControl      timeStep;
         executeInterval     1;
         writeControl        writeTime;
+		region air;
     }
 
 TLeaf
@@ -73,6 +74,7 @@ TLeaf
 		executeControl      timeStep;
         executeInterval     1;
         writeControl        writeTime;
+		region air;
     }
 }
 

@@ -17,7 +17,6 @@ FoamFile
 
 defaultFieldValues
 (
-    //volScalarFieldValue specHum 0.5
 	volScalarFieldValue LAD 0
 );
 

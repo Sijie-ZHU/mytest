@@ -22,8 +22,13 @@ boundaryField
 {
     air_to_soil3
     {
-     
-        type            zeroGradient;
+        type            compressible::turbulentTemperatureRadCoupledMixed;
+        value           uniform 350;
+        Tnbr            T;
+        kappaMethod     fluidThermo;
+        qrNbr           none;
+        qr              qr;
+        kappa           none;
     }	
 	
     top

@@ -43,13 +43,23 @@ boundaryField
     }
 	soil3_to_air
     {
-        type            fixedValue;
+        type            compressible::turbulentTemperatureRadCoupledMixed;
         value           uniform 300;
+        Tnbr            T;
+        kappaMethod     solidThermo;
+        qrNbr           qr;
+        qr              none;
+        kappa           none;
     }
     soil3_to_soil2
     {
-       type            fixedValue;
-       value           uniform 300;
+        type            compressible::turbulentTemperatureRadCoupledMixed;
+        value           uniform 300;
+        Tnbr            T;
+        kappaMethod     solidThermo;
+        qrNbr           none;
+        qr              none;
+        kappa           none;
     }
 }
 

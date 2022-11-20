@@ -15,15 +15,9 @@ do
 done
 
 runApplication -s air topoSet -region air
-setFields -dict system/air/setFieldsDict
-#runApplication -s air setFields -region air
-#subsetMesh -overwrite air -patch buildings
+runApplication -s air setFields -region air
 
-#runApplication changeDictionary
-
-
-#runApplication setFields
-#\foamToVTK -cellZone tree_cube_1
+\foamToVTK -cellZone tree_cube_1
 runApplication $(getApplication)
 
 #------------------------------------------------------------------------------

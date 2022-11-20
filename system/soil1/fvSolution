@@ -25,9 +25,16 @@ solvers
     }
 }
 
-PIMPLE
+SIMPLE
 {
     nNonOrthogonalCorrectors 0;
+    pRefCell        0;
+    pRefValue       0;
+
+    residualControl
+    {
+        h               1e-2;
+    }
 }
 
 relaxationFactors
