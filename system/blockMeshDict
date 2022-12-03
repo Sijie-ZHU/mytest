@@ -17,16 +17,16 @@ FoamFile
 scale   1;
 backgroundMesh
 {
-    size    1;
+    size   1;
 	xMin   0; 
     xMax   90;
-    zMin   -3; 
+    zMin   -2; 
     zMax   30;
     yMin   0;
     yMax   80;
     xCells  #calc "std::floor( ( $xMax - $xMin ) / $size )";
     yCells  #calc "std::floor( ( $yMax - $yMin ) / $size )";
-    zCells  #calc "std::floor( ( $zMax - $zMin ) / $size)";
+    zCells  50;
 }
 
 
@@ -50,7 +50,18 @@ blocks
         $:backgroundMesh.yCells
         $:backgroundMesh.zCells
     )
-	simpleGrading (1 1 1)
+	simpleGrading 
+	(
+	    1 
+	    1
+		(
+            (2 10 1)     // 1m y-dir, 10 cells, expansion = 1
+			(10 20 2)    // 10m y-dir, 20 cells, expansion = 2
+			(20 20 1)    // 20m y-dir, 20 cells, expansion = 1
+            
+            
+        )
+	)
 );
 
 edges

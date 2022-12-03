@@ -22,21 +22,21 @@ actions
         type    cellSet;
         action  new;
         source  boxToCell;
-        box     (-1 -1 -3)(91 81 -2);
+        box     (-1 -1 -2)(91 81 -0.4);
     }
 	{
         name    soil2;
         type    cellSet;
         action  new;
         source  boxToCell;
-        box     (-1 -1 -2)(91 81 -1);
+        box     (-1 -1 -0.4)(91 81 -0.2);
     }
 	{
         name    soil3;
         type    cellSet;
         action  new;
         source  boxToCell;
-        box     (-1 -1 -1)(91 81 0);
+        box     (-1 -1 -0.2)(91 81 0);
     }
 	{
         name    air;

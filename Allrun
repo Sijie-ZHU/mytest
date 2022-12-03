@@ -17,7 +17,7 @@ done
 runApplication -s air topoSet -region air
 runApplication -s air setFields -region air
 
-\foamToVTK -cellZone tree_cube_1
+\foamToVTK -cellZone tree_cube_1 -region air
 runApplication $(getApplication)
 
 #------------------------------------------------------------------------------
