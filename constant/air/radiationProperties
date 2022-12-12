@@ -68,16 +68,16 @@ multiBandZoneAbsorptionEmissionCoeffs
 
     zones
     {
-        absorptivity  ("tree_cube_1" (1.136)); // a [1/m] = k [-] * LAD [1/m] = 0.71 * 1.6 
+        absorptivity  ("tree_cube_1" (1.248)); // a [1/m] = k [-] * LAD [1/m] = 0.78 * 1.6 
         emissivity    ("tree_cube_1" (0));
         E             ("tree_cube_1" (0));
     }
 	//zones
     //{
-        //absorptivity  ("grass" (0.213)); // a [1/m] = k [-] * LAD [1/m] = 0.71 * 0.3 
+        //absorptivity  ("grass" (0.234)); // a [1/m] = k [-] * LAD [1/m] = 0.78 * 0.3 
         //emissivity    ("grass" (0));
         //E             ("grass" (0));
-    }
+    //}
 }
 
 scatterModel    none;
