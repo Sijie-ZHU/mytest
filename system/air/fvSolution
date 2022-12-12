@@ -44,22 +44,14 @@ solvers
 
 SIMPLE
 {
+    momentumPredictor yes;
     nNonOrthogonalCorrectors 0;
     pRefCell        0;
-    pRefValue       0;
-
-    residualControl
-    {
-        p_rgh           1e-2;
-        U               1e-3;
-        h               1e-3;
-        G               1e-3;
-		specHum         1e-3;
-
-        // possibly check turbulence fields
-        "(k|epsilon|omega)" 1e-3;
-    }
+    pRefValue       100000;
+    rhoMin          0.2;
+    rhoMax          2;
 }
+
 
 relaxationFactors
 {
@@ -72,6 +64,7 @@ relaxationFactors
     {
         U               0.3;
         h               0.5;
+		G               0.7;
 		specHum         0.5;
         "(k|epsilon|R)" 0.7;
 		"ILambda.*"     0.7;

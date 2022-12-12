@@ -18,7 +18,7 @@ epsilonInlet  0.01; // Cmu^0.75 * k^1.5 / L ; L =10
 dimensions      [0 2 -3 0 0 0 0];
 
 
-internalField   uniform 0.01;
+internalField   uniform $epsilonInlet;
 
 boundaryField
 {
@@ -37,7 +37,7 @@ boundaryField
     {
         type            zeroGradient;
     }
-    air_to_soil3
+    air_to_soil2
     {
         type            epsilonWallFunction;
         value           uniform $epsilonInlet;
@@ -47,6 +47,16 @@ boundaryField
         type            zeroGradient;
     }
     air_to_buildings
+    {
+        type            epsilonWallFunction;
+        value           uniform $epsilonInlet;
+    }
+	air_to_concrete
+    {
+        type            epsilonWallFunction;
+        value           uniform $epsilonInlet;
+    }
+	air_to_asphalt
     {
         type            epsilonWallFunction;
         value           uniform $epsilonInlet;

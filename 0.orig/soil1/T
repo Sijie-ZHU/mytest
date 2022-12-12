@@ -17,26 +17,16 @@ FoamFile
 
 dimensions      [ 0 0 0 1 0 0 0 ];
 
-internalField   uniform 300;
+internalField   uniform 310;
 
 boundaryField
 {
-    inlet
+    ".*"
     {
         type            zeroGradient;
-        value           uniform 300;
+        value           $internalField;
     }
-    outlet
-    {
-        type            zeroGradient;
-        value           uniform 300;
-    }
-    side
-    {
-       type            zeroGradient;
-        value           uniform 300; 
-    }
-    ground
+	ground
     {
         type            fixedValue;
         value           uniform 300;
@@ -44,7 +34,27 @@ boundaryField
     soil1_to_soil2
     {
         type            compressible::turbulentTemperatureRadCoupledMixed;
-        value           uniform 300;
+        value           $internalField;
+        Tnbr            T;
+        kappaMethod     solidThermo;
+        qrNbr           none;
+        qr              none;
+        kappa           none;
+    }
+	soil1_to_asphalt
+    {
+        type            compressible::turbulentTemperatureRadCoupledMixed;
+        value           $internalField;
+        Tnbr            T;
+        kappaMethod     solidThermo;
+        qrNbr           none;
+        qr              none;
+        kappa           none;
+    }
+	soil1_to_concrete
+    {
+        type            compressible::turbulentTemperatureRadCoupledMixed;
+        value           $internalField;
         Tnbr            T;
         kappaMethod     solidThermo;
         qrNbr           none;

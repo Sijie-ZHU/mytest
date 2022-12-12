@@ -34,19 +34,41 @@ air_to_buildings
     wallAbsorptionEmissionModel
     {
         type            multiBandAbsorption;
-        absorptivity    (0.6);
-        emissivity      (0.85);
+        absorptivity    (0.66);
+        emissivity      (0.95);
     };
 }
 
-air_to_soil3
+air_to_soil2
 {
     type       opaqueDiffusive;
     wallAbsorptionEmissionModel
     {
         type            multiBandAbsorption;
-        absorptivity    (0.6);
-        emissivity      (0.85);
+        absorptivity    (0.77);
+        emissivity      (0.95);
+    };
+}
+
+air_to_concrete
+{
+    type       opaqueDiffusive;
+    wallAbsorptionEmissionModel
+    {
+        type            multiBandAbsorption;
+        absorptivity    (0.66);
+        emissivity      (0.95);
+    };
+}
+
+air_to_asphalt
+{
+    type       opaqueDiffusive;
+    wallAbsorptionEmissionModel
+    {
+        type            multiBandAbsorption;
+        absorptivity    (0.7);
+        emissivity      (0.95);
     };
 }
 

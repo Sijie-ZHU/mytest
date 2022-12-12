@@ -20,10 +20,10 @@ internalField   uniform 310;
 
 boundaryField
 {
-    air_to_soil3
+    air_to_soil2
     {
         type            compressible::turbulentTemperatureRadCoupledMixed;
-        value           uniform 350;
+        value           uniform 310;
         Tnbr            T;
         kappaMethod     fluidThermo;
         qrNbr           none;
@@ -33,7 +33,7 @@ boundaryField
 	
     top
     {
-        type           zeroGradient;
+        type            zeroGradient;
     }
     side
     {
@@ -59,17 +59,37 @@ boundaryField
  
         mode            coefficient;
  
-        Ta              constant 293.15;
+        Ta              constant 299.15;
         h               constant 10.0;
         thicknessLayers (0.2);
-        kappaLayers     (0.86);
+        kappaLayers     (1.6);
  
         kappaMethod     fluidThermo;
 		qr              qr;
-        qrRelaxation    1;
+        qrRelaxation    0.1;
  
         value           $internalField;
     }
+	air_to_concrete
+    {
+        type            compressible::turbulentTemperatureRadCoupledMixed;
+        value           uniform 310;
+        Tnbr            T;
+        kappaMethod     fluidThermo;
+        qrNbr           none;
+        qr              qr;
+        kappa           none;
+    }	
+	air_to_asphalt
+    {
+        type            compressible::turbulentTemperatureRadCoupledMixed;
+        value           uniform 310;
+        Tnbr            T;
+        kappaMethod     fluidThermo;
+        qrNbr           none;
+        qr              qr;
+        kappa           none;
+    }	
 }
 
 // ************************************************************************* //

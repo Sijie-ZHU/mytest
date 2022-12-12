@@ -5,54 +5,30 @@
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
+
 FoamFile
 {
     version     2.0;
     format      ascii;
-    class       volScalarField;
-    location    "0/solid";
-    object      p;
+    class       dictionary;
+    location    "constant";
+    object      radiationProperties;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [1 -1 -2 0 0 0 0];
+radiation       off;
 
-internalField   uniform 100000;
+radiationModel  none;//opaqueSolid;
 
-boundaryField
+absorptionEmissionModel none;
+multiBandAbsorptionEmissionCoeffs
 {
-    
-	inlet
-    {
-        type            calculated;
-        value           uniform 0;
-    }
-    outlet
-    {
-        type            calculated;
-        value           uniform 0;
-    }
-    side
-    {
-       type            calculated;
-        value           uniform 0; 
-    }
-    soil3_to_buildings
-    {
-       type            calculated;
-        value           uniform 0;
-    }
-	soil3_to_air
-    {
-       type            calculated;
-        value           uniform 0;
-    }
-    soil3_to_soil2
-    {
-       type            calculated;
-        value           uniform 0;
-    }
+    absorptivity    (0.7);
+    emissivity      (0.9);
 }
 
+scatterModel    none;
+
+sootModel none;
 
 // ************************************************************************* //

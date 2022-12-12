@@ -41,12 +41,22 @@ boundaryField
         type            wideBandDiffusiveRadiation;
         value           uniform 0;
     }
-    air_to_soil3
+    air_to_soil2
     {
         type            wideBandDiffusiveRadiation;
         value           uniform 0;
     }
     air_to_buildings
+    {
+        type           wideBandDiffusiveRadiation;
+        value           uniform 0;
+    }
+	air_to_concrete
+    {
+        type            wideBandDiffusiveRadiation;
+        value           uniform 0;
+    }
+	air_to_asphalt
     {
         type            wideBandDiffusiveRadiation;
         value           uniform 0;

@@ -37,7 +37,7 @@ boundaryField
         type            calculated;
         value           uniform 100000;
     }
-    air_to_soil3
+    air_to_soil2
     {
         type            calculated;
         value           uniform 100000;
@@ -48,6 +48,16 @@ boundaryField
         value           uniform 100000;
     }
     air_to_buildings
+    {
+        type            calculated;
+        value           uniform 100000;
+    }
+	air_to_concrete
+    {
+        type            calculated;
+        value           uniform 100000;
+    }
+	air_to_asphalt
     {
         type            calculated;
         value           uniform 100000;

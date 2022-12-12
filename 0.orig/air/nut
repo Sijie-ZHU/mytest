@@ -37,9 +37,12 @@ boundaryField
         type            calculated;
         value           uniform 0;
     }
-    air_to_soil3
+    air_to_soil2
     {
         type            nutkWallFunction;
+		Cmu             0.09;
+        kappa           0.41;
+        E               9.8;
         value           uniform 0;
     }
     top
@@ -50,6 +53,25 @@ boundaryField
     air_to_buildings
     {
         type            nutkWallFunction;
+		Cmu             0.09;
+        kappa           0.41;
+        E               9.8;
+        value           uniform 0;
+    }
+	air_to_concrete
+    {
+        type            nutkWallFunction;
+		Cmu             0.09;
+        kappa           0.41;
+        E               9.8;
+        value           uniform 0;
+    }
+	air_to_asphalt
+    {
+        type            nutkWallFunction;
+		Cmu             0.09;
+        kappa           0.41;
+        E               9.8;
         value           uniform 0;
     }
 }

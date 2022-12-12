@@ -37,7 +37,7 @@ inlet
     {
         type            zeroGradient;
     }
-    air_to_soil3
+    air_to_soil2
     {
         type            noSlip;
     }
@@ -46,6 +46,14 @@ inlet
         type            zeroGradient;
     }
     air_to_buildings
+    {
+        type            noSlip;
+    }
+	air_to_concrete
+    {
+        type            noSlip;
+    }
+	air_to_asphalt
     {
         type            noSlip;
     }

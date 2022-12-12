@@ -16,36 +16,25 @@ FoamFile
 
 solvers
 {
-    "h.*"
+    h
     {
         solver           PCG;
         preconditioner   DIC;
         tolerance        1e-06;
-        relTol           0;
+        relTol           0.1;
     }
 }
 
 SIMPLE
 {
     nNonOrthogonalCorrectors 0;
-    pRefCell        0;
-    pRefValue       0;
-
-    residualControl
-    {
-        h               1e-2;
-    }
 }
-
 
 relaxationFactors
 {
-    fields
-    {
-    }
     equations
     {
-        h               1;
+        h               0.5;
     }
 }
 

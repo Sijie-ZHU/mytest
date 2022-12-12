@@ -17,7 +17,7 @@ FoamFile
 
 dimensions      [ 0 0 0 1 0 0 0 ];
 
-internalField   uniform 300;
+internalField   uniform 310;
 
 boundaryField
 {
@@ -25,12 +25,12 @@ boundaryField
 	buildings_to_air
     {
         type            zeroGradient;
-        value           uniform 300;
+        value           $internalField;
     }
-    buildings_to_soil3
+    buildings_to_concrete
     {
         type            zeroGradient;
-        value           uniform 300;
+        value           $internalField;
     }
 
 }

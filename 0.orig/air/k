@@ -14,7 +14,7 @@ FoamFile
     object      k;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-kInlet          0.6;   // approx k = 1.5*(I*U)^2 ; I = 0.1
+kInlet          0.1;   // approx k = 1.5*(I*U)^2 ; I = 0.1
 dimensions      [0 2 -2 0 0 0 0];
 
 
@@ -37,7 +37,7 @@ boundaryField
     {
         type            zeroGradient;
     }
-    air_to_soil3
+    air_to_soil2
     {
         type            kqRWallFunction;
         value           uniform $kInlet;
@@ -47,6 +47,16 @@ boundaryField
         type            zeroGradient;
     }
     air_to_buildings
+    {
+        type            kqRWallFunction;
+        value           uniform $kInlet;
+    }
+	air_to_concrete
+    {
+        type            kqRWallFunction;
+        value           uniform $kInlet;
+    }
+	air_to_asphalt
     {
         type            kqRWallFunction;
         value           uniform $kInlet;

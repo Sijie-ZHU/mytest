@@ -37,7 +37,7 @@ boundaryField
         type            calculated;
         value           uniform 0;
     }
-    air_to_soil3
+    air_to_soil2
     {
         type            compressible::alphatWallFunction;
         Prt             0.85;
@@ -49,6 +49,18 @@ boundaryField
         value           uniform 0;
     }
     air_to_buildings
+    {
+        type            compressible::alphatWallFunction;
+        Prt             0.85;
+        value           uniform 0;
+    }
+	air_to_concrete
+    {
+        type            compressible::alphatWallFunction;
+        Prt             0.85;
+        value           uniform 0;
+    }
+	air_to_asphalt
     {
         type            compressible::alphatWallFunction;
         Prt             0.85;

@@ -29,7 +29,16 @@ regions
 
         fieldValues
         (
-			volScalarFieldValue LAD 10
+			volScalarFieldValue LAD 1.6
+        );
+    }
+	cellToCell
+    {
+        set grass;
+
+        fieldValues
+        (
+			volScalarFieldValue LAD 0.3
         );
     }
 	

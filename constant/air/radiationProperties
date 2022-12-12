@@ -22,7 +22,7 @@ radiationModel  fvDOM;
 fvDOMCoeffs
 {
     nPhi        3;      // azimuthal angles in PI/2 on X-Y (from Y to X)
-    nTheta      3;      // polar angles in PI (from Z to X-Y plane)
+    nTheta      6;      // polar angles in PI (from Z to X-Y plane)
     maxIter     10;     // maximum number of iterations
     tolerance   2e-2;   // convergence criteria for radiation iteration
     useSolarLoad      false;
@@ -45,16 +45,15 @@ solarCalculatorCoeffs
     // gridEast                (1 0 0);
 
     sunLoadModel sunLoadConstant;
-    directSolarRad  800;    // [w/m2]
+    directSolarRad  500;    // [w/m2]
     diffuseSolarRad 0;     // [w/m2]
-    C   0;  // Model constant
     // or
     // sunLoadModel sunLoadFairWeatherConditions;
     // A       500;        // Apparent solar irradiation at air mass m = 0
     // B       0.142;      // Atmospheric extinction coefficient
     // beta    90;         // Solar altitude (in degrees) above the horizontal
-    // groundReflectivity 0.2;
-    // C   0.058;  // Model constant
+    //groundReflectivity 0.2;
+     C   0.058;  // Model constant
 }
 
 // Number of flow iterations per radiation iteration
@@ -64,15 +63,20 @@ absorptionEmissionModel multiBandZoneAbsorptionEmission;
 
 multiBandZoneAbsorptionEmissionCoeffs
 {
-    absorptivity  (0);
-    emissivity    (0);
-    E             (0);
+    absorptivity  (0.01);
+    emissivity    (0.01);
 
     zones
     {
-        absorptivity  ("tree_cube_1" (7.1)); // a [1/m] = k [-] * LAD [1/m] = 0.71 * 10 
+        absorptivity  ("tree_cube_1" (1.136)); // a [1/m] = k [-] * LAD [1/m] = 0.71 * 1.6 
         emissivity    ("tree_cube_1" (0));
         E             ("tree_cube_1" (0));
+    }
+	//zones
+    //{
+        //absorptivity  ("grass" (0.213)); // a [1/m] = k [-] * LAD [1/m] = 0.71 * 0.3 
+        //emissivity    ("grass" (0));
+        //E             ("grass" (0));
     }
 }
 

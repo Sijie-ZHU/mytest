@@ -182,7 +182,7 @@ bool Foam::functionObjects::TLeaf::execute()
 		
 		//Tetens equation [kPa]
 		//volScalarField pVSatAir = 1000 * pressureUnit * E * exp((A * (T - B)) / ((T - B) + C));
-        volScalarField pVAir = w * F * T;
+        volScalarField pVAir = w * R_v_ * T;
 
         // Saturation vapour pressure at TLeaf (Tetens equation)
         // [Pa]/[kg/(m s^2)]

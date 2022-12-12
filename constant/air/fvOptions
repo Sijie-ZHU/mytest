@@ -47,7 +47,7 @@ ESource
     type              ESource;
 	fields            (h);
     selectionMode     cellZone;// all, cellSet, cellZone, points
-	cellZone          tree_cube_1;
+	cellZone          vegetation;
 }	
 
 specHumSource

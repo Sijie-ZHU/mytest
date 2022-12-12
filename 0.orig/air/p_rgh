@@ -36,7 +36,7 @@ boundaryField
     {
         type            zeroGradient;
     }
-    air_to_soil3
+    air_to_soil2
     {
         type            fixedFluxPressure;
         rho             rhok;
@@ -47,6 +47,18 @@ boundaryField
         type            zeroGradient;
     }
     air_to_buildings
+    {
+        type            fixedFluxPressure;
+        rho             rhok;
+        value           uniform 100000;
+    }
+	air_to_concrete
+    {
+        type            fixedFluxPressure;
+        rho             rhok;
+        value           uniform 100000;
+    }
+	air_to_asphalt
     {
         type            fixedFluxPressure;
         rho             rhok;

@@ -17,22 +17,16 @@ FoamFile
 
 actions
 (
-    {
+    
+	{
         name    soil1;
         type    cellSet;
         action  new;
         source  boxToCell;
-        box     (-1 -1 -2)(91 81 -0.4);
+        box     (-1 -1 -2)(91 81 -0.2);
     }
 	{
         name    soil2;
-        type    cellSet;
-        action  new;
-        source  boxToCell;
-        box     (-1 -1 -0.4)(91 81 -0.2);
-    }
-	{
-        name    soil3;
         type    cellSet;
         action  new;
         source  boxToCell;
@@ -56,13 +50,6 @@ actions
         name    air;
         type    cellSet;
         action  add;
-        source  cellToCell;
-        set     soil3;
-    }
-	{
-        name    air;
-        type    cellSet;
-        action  add;
         source  boxToCell;
         box     (36 36 0)(44 44 6);
     }
@@ -72,34 +59,93 @@ actions
         type    cellSet;
         action  invert;
     }
+	// take the concrete patch and turn it into a set of face.
+    {
+	    name 	concrete;
+	    type	cellSet;
+	    action	new;
+	    source          surfaceToCell; // surfaceToPoint;
+        file            "constant/triSurface/concrete.stl";
+        outsidePoints   ((0 0 0));
+        includeCut      true;
+        includeInside   false;
+        includeOutside  false;
+        nearDistance    -1;
+        curvature       -100;
+        useSurfaceOrientation false;
+    }
 	
+	// take the asphalt patch and turn it into a set of face.
+    {
+	    name 	asphalt;
+	    type	cellSet;
+	    action	new;
+	    source          surfaceToCell; // surfaceToPoint;
+        file            "constant/triSurface/asphalt.stl";
+        outsidePoints   ((0 0 0));
+        includeCut      true;
+        includeInside   false;
+        includeOutside  false;
+        nearDistance    -1;
+        curvature       -100;
+        useSurfaceOrientation false;
+    }
 	{
         name    soil1;
         type    cellZoneSet;
         action  new;
         source  setToCellZone;
-        set     soil1;           // cellSet
+        set     soil1;           
+    }
+
+	{
+        name    soil2;
+        type    cellSet;
+        action  subtract;
+        source  cellToCell;
+        set     concrete;          
+    }
+	{
+        name    soil2;
+        type    cellSet;
+        action  subtract;
+        source  cellToCell;
+        set     asphalt;         
+    }
+	{
+        name    concrete;
+        type    cellSet;
+        action  subtract;
+        source  cellToCell;
+        set     asphalt;           
+    }
+	{
+        name    concrete;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        set     concrete;           
+    }
+	{
+        name    asphalt;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        set     asphalt;           
     }
 	{
         name    soil2;
         type    cellZoneSet;
         action  new;
         source  setToCellZone;
-        set     soil2;           // cellSet
-    }
-	{
-        name    soil3;
-        type    cellZoneSet;
-        action  new;
-        source  setToCellZone;
-        set     soil3;           // cellSet
+        set     soil2;           
     }
 	{
         name    air;
         type    cellZoneSet;
         action  new;
         source  setToCellZone;
-        set     air;           // cellSet
+        set     air;           
     }
 	{
         name    buildings;
@@ -114,7 +160,7 @@ actions
         type    cellZoneSet;
         action  new;
         source  setToCellZone;
-        set     buildings;           // cellSet
+        set     buildings;          
     }
 );
  

@@ -44,7 +44,7 @@ mixture
 	equationOfState
     {
         rho0            1;
-        T0              300;
+        T0              310;
         beta            3e-03;
     }
 }

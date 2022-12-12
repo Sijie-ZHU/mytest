@@ -39,10 +39,46 @@ actions
         box     (26 38 1)(30 42 6);
     }
 	{
+        name    grass;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        box     (10 10 0)(80 20 0.2);
+    }
+	
+	{
+        name    vegetation;
+        type    cellSet;
+        action  new;
+        source  cellToCell;
+        set     tree_cube_1;
+    }
+	{
+        name    vegetation;
+        type    cellSet;
+        action  add;
+        source  cellToCell;
+        set     grass;
+    }
+	{
         name    tree_cube_1;
         type    cellZoneSet;
         action  new;
         source  setToCellZone;
         set     tree_cube_1;           // cellSet
+    }
+	{
+        name    vegetation;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        set     vegetation;           // cellSet
+    }
+	{
+        name    grass;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        set     grass;           // cellSet
     }
 );

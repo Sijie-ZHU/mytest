@@ -27,7 +27,7 @@ boundaryField
         type            calculated;
         value           uniform 0;
     }
-    buildings_to_soil3
+    buildings_to_concrete
     {
         type            calculated;
         value           uniform 0;

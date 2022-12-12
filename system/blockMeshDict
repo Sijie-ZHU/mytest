@@ -53,13 +53,13 @@ blocks
 	simpleGrading 
 	(
 	    1 
-	    1
+		1
 		(
-            (2 10 1)     // 1m y-dir, 10 cells, expansion = 1
-			(10 20 2)    // 10m y-dir, 20 cells, expansion = 2
-			(20 20 1)    // 20m y-dir, 20 cells, expansion = 1
-            
-            
+            (1.8 8 0.25)     // 1.8m z-dir, 8 cells, expansion = 0.25
+			(0.2 2 1)     // 0.2m z-dir, 2 cells, expansion = 1
+			(0.2 1 1)     // 0.2m z-dir, 1 cells, expansion = 1
+			(9.8 20 2)    // 3m z-dir, 20 cells, expansion = 2
+			(20 20 1)    // 20m z-dir, 20 cells, expansion = 1
         )
 	)
 );

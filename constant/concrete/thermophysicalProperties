@@ -1,4 +1,4 @@
-/*--------------------------------*- C++ -*----------------------------------*\
+/*--------------------------------*- C++ -*----------------------------------* \
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
 |  \\    /   O peration     | Version:  v2012                                 |
@@ -10,40 +10,43 @@ FoamFile
     version     2.0;
     format      ascii;
     class       dictionary;
-    object      fvSchemes;
+    object      thermophysicalProperties;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-ddtSchemes
+thermoType
 {
-    default     steadyState;
+    type            heSolidThermo;
+    mixture         pureMixture;
+    transport       constIso;
+    thermo          hConst;
+    equationOfState rhoConst;
+    specie          specie;
+    energy          sensibleEnthalpy;
 }
 
-gradSchemes
+mixture
 {
-    default         Gauss linear;
-}
+    specie
+    {
+        molWeight   20;
+    }
 
-divSchemes
-{
-    default         none;
-}
+    transport
+    {
+        kappa   1.6;
+    }
 
-laplacianSchemes
-{
-    default             none;
-    laplacian(alpha,h)  Gauss linear uncorrected;
-}
+    thermodynamics
+    {
+        Hf      0;
+        Cp      1000;
+    }
 
-interpolationSchemes
-{
-    default         linear;
+    equationOfState
+    {
+        rho     2300;
+    }
 }
-
-snGradSchemes
-{
-    default         uncorrected;
-}
-
 
 // ************************************************************************* //
