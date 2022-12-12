@@ -1,0 +1,53 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2012                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "200/concrete";
+    object      p;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -1 -2 0 0 0 0];
+
+
+internalField   uniform 100000;
+
+boundaryField
+{
+    concrete_to_air
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    concrete_to_asphalt
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    concrete_to_soil2
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    concrete_to_buildings
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    concrete_to_soil1
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+}
+
+
+// ************************************************************************* //

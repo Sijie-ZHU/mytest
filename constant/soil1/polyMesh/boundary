@@ -1,0 +1,77 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2012                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/soil1/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+7
+(
+    inlet
+    {
+        type            patch;
+        nFaces          640;
+        startFace       164240;
+    }
+    outlet
+    {
+        type            patch;
+        nFaces          640;
+        startFace       164880;
+    }
+    side
+    {
+        type            patch;
+        nFaces          1440;
+        startFace       165520;
+    }
+    ground
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          7200;
+        startFace       166960;
+    }
+    soil1_to_asphalt
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          990;
+        startFace       174160;
+        sampleMode      nearestPatchFace;
+        sampleRegion    asphalt;
+        samplePatch     asphalt_to_soil1;
+    }
+    soil1_to_soil2
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          5248;
+        startFace       175150;
+        sampleMode      nearestPatchFace;
+        sampleRegion    soil2;
+        samplePatch     soil2_to_soil1;
+    }
+    soil1_to_concrete
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          962;
+        startFace       180398;
+        sampleMode      nearestPatchFace;
+        sampleRegion    concrete;
+        samplePatch     concrete_to_soil1;
+    }
+)
+
+// ************************************************************************* //

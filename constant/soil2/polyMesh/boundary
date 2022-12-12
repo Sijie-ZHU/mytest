@@ -1,0 +1,80 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2012                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/soil2/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+7
+(
+    inlet
+    {
+        type            patch;
+        nFaces          138;
+        startFace       25848;
+    }
+    outlet
+    {
+        type            patch;
+        nFaces          138;
+        startFace       25986;
+    }
+    side
+    {
+        type            patch;
+        nFaces          180;
+        startFace       26124;
+    }
+    soil2_to_soil1
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          5248;
+        startFace       26304;
+        sampleMode      nearestPatchFace;
+        sampleRegion    soil1;
+        samplePatch     soil1_to_soil2;
+    }
+    soil2_to_concrete
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          200;
+        startFace       31552;
+        sampleMode      nearestPatchFace;
+        sampleRegion    concrete;
+        samplePatch     concrete_to_soil2;
+    }
+    soil2_to_asphalt
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          128;
+        startFace       31752;
+        sampleMode      nearestPatchFace;
+        sampleRegion    asphalt;
+        samplePatch     asphalt_to_soil2;
+    }
+    soil2_to_air
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          5248;
+        startFace       31880;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     air_to_soil2;
+    }
+)
+
+// ************************************************************************* //
