@@ -81,4 +81,27 @@ actions
         source  setToCellZone;
         set     grass;           // cellSet
     }
+	// additions
+    {
+        name        patch1;
+        type        faceSet;
+        action      new;
+        source      patchToFace;
+        patch       air_to_soil2;
+    }
+    {
+        name        grass2;
+        type        cellSet;
+        action      new;
+        source      faceToCell;
+        option      owner;
+        set         patch1;
+    }
+    {
+        name    grass2;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        set     grass2;           // cellSet
+    }
 );
