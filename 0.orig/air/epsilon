@@ -22,10 +22,11 @@ internalField   uniform $epsilonInlet;
 
 boundaryField
 {
-    inlet
+    #include            "include/ABLConditions"
+	inlet
     {
-        type            fixedValue;
-        value           uniform $epsilonInlet;
+        type            atmBoundaryLayerInletEpsilon;
+        #include        "include/ABLConditions"
     }
     outlet
     {
@@ -40,7 +41,9 @@ boundaryField
     air_to_soil2
     {
         type            epsilonWallFunction;
-        value           uniform $epsilonInlet;
+        Cmu             $Cmu;
+        kappa           $kappa;
+        value           $internalField;
     }
     top
     {
@@ -49,17 +52,23 @@ boundaryField
     air_to_buildings
     {
         type            epsilonWallFunction;
-        value           uniform $epsilonInlet;
+        Cmu             $Cmu;
+        kappa           $kappa;
+        value           $internalField;
     }
 	air_to_concrete
     {
         type            epsilonWallFunction;
-        value           uniform $epsilonInlet;
+        Cmu             $Cmu;
+        kappa           $kappa;
+        value           $internalField;
     }
 	air_to_asphalt
     {
         type            epsilonWallFunction;
-        value           uniform $epsilonInlet;
+        Cmu             $Cmu;
+        kappa           $kappa;
+        value           $internalField;
     }
 }
 

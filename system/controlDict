@@ -54,6 +54,7 @@ libs
 	"epsilonSource.so"
 	"ESource.so"
 	"specHumSource.so"
+	"atmosphericModels"
 	
 );
 

@@ -24,8 +24,8 @@ boundaryField
 {
     inlet
     {
-        type            fixedValue;
-        value           uniform $kInlet;
+        type            atmBoundaryLayerInletK;
+        #include        "include/ABLConditions"
     }
     outlet
     {
