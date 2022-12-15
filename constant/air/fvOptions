@@ -22,39 +22,39 @@ USource
 {
     type              USource;
 	fields            (U);
-    selectionMode     cellZone;// all, cellSet, cellZone, points
-	cellZone          tree_cube_1;
+    selectionMode     all;// all, cellSet, cellZone, points
+	//cellZone          tree_cube_1;
 }
 
 kSource
 {
     type              kSource;
 	fields            (k);
-    selectionMode     cellZone;// all, cellSet, cellZone, points
-	cellZone          tree_cube_1;
+    selectionMode     all;// all, cellSet, cellZone, points
+	//cellZone          tree_cube_1;
 }
 
 epsilonSource
 {
     type              epsilonSource;
 	fields            (epsilon);
-    selectionMode     cellZone;// all, cellSet, cellZone, points
-	cellZone          tree_cube_1;
+    selectionMode     all;// all, cellSet, cellZone, points
+	//cellZone          tree_cube_1;
 }	
 
 ESource
 {
     type              ESource;
 	fields            (h);
-    selectionMode     cellZone;// all, cellSet, cellZone, points
-	cellZone          vegetation;
+    selectionMode     all;// all, cellSet, cellZone, points
+	//cellZone          tree_cube_1;
 }	
 
 specHumSource
 {
     type              specHumSource;
 	fields            (specHum);
-    selectionMode     cellZone;// all, cellSet, cellZone, points
-	cellZone          tree_cube_1;
+    selectionMode     all;// all, cellSet, cellZone, points
+	//cellZone          tree_cube_1;
 }	
 // ************************************************************************* //
